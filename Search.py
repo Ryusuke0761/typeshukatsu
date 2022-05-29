@@ -10,10 +10,20 @@ def main():
 
 def serch_index(sorted_array, target_number):
 
-    # ここから記述
-
-
-    # ここまで記述
+    left = 0
+    right = len(sorted_array) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2            # 探索する範囲の中央を計算
+        if sorted_array[mid] == target_number:
+            # 中央の値と一致した場合は位置を返す
+            return mid
+        elif sorted_array[mid] < target_number:
+            # 中央の値より大きい場合は探索範囲の左を変える
+            left = mid + 1
+        else:
+            # 中央の値より小さい場合は探索範囲の右を変える
+            right = mid - 1
 
     # 探索対象が存在しない場合、-1を返却
     return -1
